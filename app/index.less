@@ -1,8 +1,17 @@
 @import url('https://fonts.googleapis.com/css?family=Roboto');
 
+
 html {
 	font-family: 'Roboto', sans-serif;
+	 font-size: 62.5%;
 }
+a {
+	color: gray;
+	&:hover {
+		color: black;
+	}
+}
+
 
 #index {
 	display: flex;
@@ -11,18 +20,35 @@ html {
 		padding: 0;
 	}
 	section {
-		
 		flex: 1;
 		ul {
 			display: flex;
 			flex-wrap: wrap;
 			li {
+				display: flex;
+				justify-content: stretch;
+				img {
+					max-height: 150px;
+					flex: 0 0 ;
+				}
+				a {
+					display: flex;
+					align-content: space-between;
+					flex-direction: column;
+					text-decoration: none;
+					div {
+						flex:1;
+						display: flex;
+						justify-content: center;
+						align-items: center
+					}
+				}
 				height: 200px;
 				width: 200px;
 				border: 1px solid black;
 				margin: 1rem;
+				padding: 1rem;
 			}
-
 		}
 	}
 }
