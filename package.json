@@ -1,0 +1,24 @@
+{
+  "name": "eureka-mini",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/juhyxx/eureka-mini.git"
+  },
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/juhyxx/eureka-mini/issues"
+  },
+  "homepage": "https://github.com/juhyxx/eureka-mini#readme",
+  "devDependencies": {
+    "babel-cli": "^6.26.0",
+    "babel-preset-env": "^1.6.1",
+    "less": "^3.0.1"
+  }
+}
