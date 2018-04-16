@@ -4,13 +4,11 @@
   "description": "",
   "main": "index.js",
   "scripts": {
+    "start": "node index.js",
     "test": "echo \"Error: no test specified\" && exit 1"
   },
-  "repository": {
-    "type": "git",
-    "url": "git+https://github.com/juhyxx/eureka-mini.git"
-  },
-  "author": "",
+  "repository": "git+https://github.com/juhyxx/eureka-mini.git",
+  "author": "Miroslav Juhy Juhos <juhy@rezatyrakety.cz>",
   "license": "ISC",
   "bugs": {
     "url": "https://github.com/juhyxx/eureka-mini/issues"
@@ -20,5 +18,10 @@
     "babel-cli": "^6.26.0",
     "babel-preset-env": "^1.6.1",
     "less": "^3.0.1"
+  },
+  "dependencies": {
+    "colors": "^1.2.1",
+    "handlebars": "^4.0.11",
+    "watch": "^1.0.2"
   }
 }
