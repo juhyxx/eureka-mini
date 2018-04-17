@@ -1,23 +1,68 @@
 @import url('https://fonts.googleapis.com/css?family=Roboto');
 
+@baseColor: #7A9E9F;
+
 
 html {
 	font-family: 'Roboto', sans-serif;
-	 font-size: 62.5%;
+	font-size: 62.5%;
+}
+body {
+	display: flex;
+	font-size: 1.5rem;
+	flex-direction: column;
+	padding: 0;
+	margin: 0;
+	align-items: center;
 }
 a {
 	color: gray;
+	text-decoration: none;
 	&:hover {
 		color: black;
 	}
 }
-
-
-#index {
+header {
+	background-color: @baseColor;
+	align-self: stretch;
+	padding: 1rem;
+	color: white;
+	font-weight: bold;
+	min-height: 3vh;
 	display: flex;
+	align-items: center;
+}
+footer {
+	align-self: stretch;
+	justify-content: center;
+	background-color: desaturate(@baseColor, 100);
+	padding: 4rem 0;
+	color: white;
+	display: flex;
+	div {
+		max-width: 800px;
+	}
+}
+main {
+	display: flex;
+	max-width: 800px;
+	min-height: 70vh;
+}
+
+
+#index main {
 	ul {
 		list-style: none;
 		padding: 0;
+		margin-right: 1rem;
+		li {
+			margin-bottom: 0.5rem;
+		}
+	}
+	@media only screen and (max-width: 600px) {
+		ul.list {
+			display: none;
+		}
 	}
 	section {
 		flex: 1;
@@ -27,27 +72,37 @@ a {
 			li {
 				display: flex;
 				justify-content: stretch;
-				img {
-					max-height: 150px;
-					flex: 0 0 ;
-				}
+				height: 200px;
+				width: 200px;
+				margin: 1rem;
+				border-radius: 1rem;
+				border: 1px solid rgba(0,0,0, 0.1);
+				transition: box-shadow 0.5s;
 				a {
+					padding: 0.5rem;
+					flex:1;
 					display: flex;
 					align-content: space-between;
 					flex-direction: column;
 					text-decoration: none;
 					div {
-						flex:1;
-						display: flex;
-						justify-content: center;
-						align-items: center
+						&:first-child {
+							height: 150px;
+							background-repeat: no-repeat;
+							background-size:contain;
+							background-position: center;
+						}
+						&:last-child {
+							flex:1;
+							display: flex;
+							justify-content: center;
+							align-items: center;
+						}
 					}
 				}
-				height: 200px;
-				width: 200px;
-				border: 1px solid black;
-				margin: 1rem;
-				padding: 1rem;
+				&:hover  {
+					box-shadow:1px 1px 3px rgba(0,0,0, 0.5);
+				}
 			}
 		}
 	}

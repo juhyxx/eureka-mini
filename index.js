@@ -12,16 +12,19 @@ const PORT = 8080;
 const PUBLIC_DIR = "public";
 const apiUrl = "http://python-servers-vtnovk529892.codeanyapp.com:5000";
 
-let template = compileTemplate();
-compileLess();
 if (!fs.existsSync(PUBLIC_DIR)) {
   fs.mkdir(PUBLIC_DIR);
 }
 
-let requestListener = function(req, res) {
-  let content;
+let template = compileTemplate();
+compileLess();
+handlebars.registerPartial("header", fs.readFileSync("app/header.hbs", "utf8"));
+handlebars.registerPartial("footer", fs.readFileSync("app/footer.hbs", "utf8"));
+handlebars.registerPartial("reload", fs.readFileSync("app/reload.hbs", "utf8"));
 
-  let url = req.url;
+let requestListener = function(req, res) {
+	let content;
+	const url = req.url;
 
   switch (true) {
     case /\/app/.test(url):
@@ -31,7 +34,7 @@ let requestListener = function(req, res) {
       break;
 
     case /^\/$/.test(url):
-      console.log(colors.green(req.method), req.url);
+      console.log(colors.green(req.method), url);
       http.get(`${apiUrl}/categories/`, response => {
         let requestData = "";
 
@@ -46,27 +49,25 @@ let requestListener = function(req, res) {
       break;
 
     case /^\/style.css/.test(url):
-      console.log(colors.green(req.method), req.url);
+      console.log(colors.green(req.method), url);
       res.writeHead(200, { "Content-Type": "text/css; charset=utf-8" });
       content = fs.readFileSync("public/style.css", "utf8");
       res.end(content);
       break;
 
     default:
-      console.log(colors.red(req.method), req.url);
+      console.log(colors.red(req.method), url);
       res.writeHead(404);
       res.end();
   }
 };
 
-var server = http.createServer(requestListener);
+let server = http.createServer(requestListener);
 server.listen(PORT, () => {
   console.log(`listening ${PORT} ...`.green);
 });
 
-wsServer = new WebSocketServer({
-  httpServer: server
-});
+let wsServer = new WebSocketServer({ httpServer: server });
 
 wsServer.on("request", function(r) {
   wsConnection = r.accept("echo-protocol", r.origin);
@@ -82,6 +83,7 @@ function reload() {
 
 watch.watchTree("app", { ignoreDotFiles: true }, (f, prev, curr) => {
   if (typeof f == "object" && prev === null && curr === null) {
+		console.log("Watching".blue);
   } else {
     console.log("change".blue, f);
     switch (path.extname(f)) {
