@@ -94,7 +94,8 @@ function render(file) {
     const templates = {
       index: handlebars.compile(fs.readFileSync(path.format({ dir: SOURCE_DIR, name: 'index.hbs' }), 'utf8')),
       page404: handlebars.compile(fs.readFileSync(path.format({ dir: SOURCE_DIR, name: '404.hbs' }), 'utf8')),
-      category: handlebars.compile(fs.readFileSync(path.format({ dir: SOURCE_DIR, name: 'category.hbs' }), 'utf8'))
+      category: handlebars.compile(fs.readFileSync(path.format({ dir: SOURCE_DIR, name: 'category.hbs' }), 'utf8')),
+      detail: handlebars.compile(fs.readFileSync(path.format({ dir: SOURCE_DIR, name: 'detail.hbs' }), 'utf8'))
     };
     fs.writeFile('public/404.html', templates.page404(), 'utf8');
 
@@ -103,23 +104,31 @@ function render(file) {
 
       fs.writeFile(path.format({ dir: PUBLIC_DIR, name: 'index.html' }), result, 'utf8');
       mkdir('/category');
-      categories.forEach(item => {
-        mkdir(`/category/${item.categoryId}`);
-        loadApiData(`products/${item.categoryId}/0/100/`).then(products => {
+      categories.forEach(category => {
+        mkdir(`/category/${category.categoryId}`);
+        loadApiData(`products/${category.categoryId}/0/100/`).then(products => {
           products.forEach(product => {
             loadApiData(`offers/${product.productId}/0/100/`).then(offers => {
               offers = offers || [];
+
               let prices = offers.map(offer => offer.price);
               product.rangeMin = Math.min.apply(Math, prices);
               product.rangeMax = Math.max.apply(Math, prices);
               product.description = (offers.find(offer => !!offer.description) || {}).description;
-              result = templates.category({ selected: item, categories: categories, products: products });
-              fs.writeFile(`public/category/${item.categoryId}/index.html`, result, 'utf8');
+              product.category = category;
+
+              result = templates.category({ selected: category, categories: categories, products: products });
+              fs.writeFile(`public/category/${category.categoryId}/index.html`, result, 'utf8');
+
+              result = templates.detail({ selected: product, offers: offers.sort((a,b)=>a.price-b.price) });
+              fs.writeFile(`public/category/${category.categoryId}/${product.productId}.html`, result, 'utf8');
             });
           });
         });
-      });
-      resolve();
+			});
+			setTimeout(() => {
+        resolve();
+      }, 1500);
     });
   });
 }

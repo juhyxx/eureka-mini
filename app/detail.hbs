@@ -6,10 +6,32 @@
 	<link rel="stylesheet" href="/style.css">
 </head>
 
-<body id="category">
+<body id="detail">
 	{{> header }}
 	<main>
-
+		<section>
+			<div class="image" style="background-image:url(/images/products/{{selected.productId}}.jpg)"></div>
+			<div>
+				<h1>{{selected.title}}</h1>
+				<h3>
+					<a href="/category/{{selected.category.categoryId}}">{{selected.category.title}}</a> > {{selected.title}}</h3>
+				<p>{{selected.description}}</p>
+			</div>
+		</section>
+		<section>
+			<hr>
+			<h2>Porovnání cen</h2>
+			<table>
+				 {{#each offers}}
+				<tr>
+					<td>{{title}}</td>
+					<td><a href="{{url}}" class="button">Koupit</a></td>
+					<td>{{currency price}} Kč</td>
+				</tr>
+				{{/each}}
+			</table>
+			<a href="">zobrazit další nabídky obchodu</a>
+		</section>
 	</main>
 	{{> footer }} {{> reload }}
 </body>
