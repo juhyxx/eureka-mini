@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+	<title>{{selected.title}} (Eureka)</title>
+	<link rel="stylesheet" href="/style.css">
+</head>
+
+<body id="category">
+	{{> header }}
+	<main>
+		<div class="list-category">
+			{{#each categories}} {{#if (eq categoryId ../selected.categoryId)}}
+			<a href="/category/{{categoryId}}" class=selected>{{title}}</a>
+			{{else}}
+			<a href="/category/{{categoryId}}">{{title}}</a>
+			{{/if}} {{/each}}
+		</div>
+		<section>
+			<ul class="list-items-down">
+				{{#each products}}
+				<li>
+					<div class="image" style="background-image:url(/images/products/{{productId}}.jpg)"></div>
+
+					<div>
+						<h2>{{title}}</h2>
+						<div>{{description}}</div>
+					</div>
+
+					<div>
+						<div class="price">{{currency rangeMin}} - {{currency rangeMax}} CZK</div>
+						<button>Porovnat ceny</button>
+					</div>
+
+				</li>
+				{{/each}}
+			</ul>
+			<div>Paging</div>
+		</section>
+
+	</main>
+	{{> footer }} {{> reload }}
+</body>

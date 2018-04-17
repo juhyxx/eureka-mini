@@ -1,26 +1,25 @@
+<!DOCTYPE html>
 <html>
 
 <head>
-	<title>Heureka</title>
-	<link rel="stylesheet" href="style.css">
+	<title>Eureka</title>
+	<link rel="stylesheet" href="/style.css">
 </head>
 
 <body id="index">
-	 {{> header }}
+	{{> header }}
 	<main>
-		<ul class="list">
-			{{#each categories}}
-			<li>
-				<a href="/category/{{categoryId}}">{{title}}</a>
-			</li>
-			{{/each}}
-		</ul>
+
+		<div class="list-category">
+			{{#each categories}}<a href="/category/{{categoryId}}">{{title}}</a>{{/each}}
+		</div>
+
 		<section>
-			<ul>
+			<ul class="list-items">
 				{{#each categories}}
 				<li>
 					<a href="/category/{{categoryId}}">
-						<div style="background-image:url(app/assets/{{categoryId}}.jpg)"></div>
+						<div style="background-image:url(/images/{{categoryId}}.jpg)"></div>
 						<div>{{title}}</div>
 					</a>
 				</li>
@@ -29,7 +28,7 @@
 			<div>Paging</div>
 		</section>
 	</main>
-	 {{> footer }}
+	{{> footer }}
 </body>
 
 {{> reload }}

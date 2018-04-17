@@ -1,0 +1,30 @@
+@import url('https://fonts.googleapis.com/css?family=Roboto');
+
+@color1: #7a9e9f;
+@color2: spin(@color1, -135);
+@width: 1000px;
+
+@import 'app/styles/common.less';
+@import 'app/styles/list-items.less';
+@import 'app/styles/list-category.less';
+@import 'app/styles/list-items-down.less';
+
+body#index {
+  ul.list-category {
+    li {
+      a {
+        color: @color1;
+			}
+    }
+  }
+}
+
+#page404 {
+  main {
+    font-size: 10rem;
+  }
+}
+
+section {
+  flex: 1;
+}

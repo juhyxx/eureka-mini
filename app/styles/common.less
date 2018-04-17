@@ -1,0 +1,64 @@
+html {
+  font-family: 'Roboto', sans-serif;
+	font-size: 62.5%;
+}
+
+body {
+  display: flex;
+  font-size: 1.5rem;
+  flex-direction: column;
+  padding: 0;
+  margin: 0;
+  align-items: center;
+}
+a {
+  color: gray;
+  text-decoration: none;
+  &:hover {
+    color: black;
+  }
+}
+header {
+  background-color: @color1;
+  align-self: stretch;
+  padding: 1rem;
+  font-weight: bold;
+  min-height: 3vh;
+  display: flex;
+  align-items: center;
+  a {
+    color: lighten(@color1, 30);
+    &:hover {
+      color: white;
+    }
+  }
+}
+footer {
+  align-self: stretch;
+  justify-content: center;
+  background-color: desaturate(@color1, 100);
+  padding: 4rem 0;
+  color: white;
+  display: flex;
+  div {
+    max-width: @width;
+  }
+}
+main {
+  display: flex;
+  max-width: @width;
+  min-height: 70vh;
+}
+
+button {
+  white-space: nowrap;
+  background-color: @color1;
+  color: white;
+  border: 0;
+  padding: 1rem 2rem;
+  margin: 1rem;
+  &:hover {
+    background-color: darken(@color1, 10);
+    cursor: pointer;
+  }
+}

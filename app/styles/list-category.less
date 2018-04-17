@@ -1,0 +1,25 @@
+.list-category {
+  list-style: none;
+  padding-top: 2rem;
+  margin-right: 1rem;
+
+  a {
+    display: block;
+    padding: 1rem 0;
+    padding-left: 1rem;
+    border-left: 4px solid #dddddd;
+    color: #dddddd;
+    &.selected {
+      border-left-color: @color1;
+      color: darken(@color1, 10);
+    }
+    &:hover {
+      border-left-color: gray;
+      color: gray;
+    }
+  }
+
+  @media only screen and (max-width: 600px) {
+    display: none;
+  }
+}

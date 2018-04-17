@@ -1,0 +1,31 @@
+.list-items-down {
+  padding: 0;
+  list-style: none;
+  display: flex;
+  flex-direction: column;
+  flex: 1;
+  li {
+    display: flex;
+    margin-bottom: 2rem;
+    h2 {
+      color: @color2;
+    }
+    .price {
+      font-weight: bold;
+      color: @color1;
+    }
+    .image {
+      min-width: 200px;
+      background-repeat: no-repeat;
+      background-size: contain;
+      background-position: center;
+      margin-right: 2rem;
+    }
+    & > div:last-child {
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      align-items: flex-end;
+    }
+  }
+}
