@@ -6,9 +6,9 @@
 	<link rel="stylesheet" href="/style.css">
 </head>
 
-<body id="category">
+<body>
 	{{> header }}
-	<main>
+	<main id="category">
 		<div class="list-category">
 			{{#each categories}} {{#if (eq categoryId ../selected.categoryId)}}
 			<a href="/category/{{categoryId}}" class=selected>{{title}}</a>
@@ -20,7 +20,7 @@
 			<ul class="list-items-down">
 				{{#each products}}
 				<li>
-					<div class="image" style="background-image:url(/images/products/{{productId}}.jpg)"></div>
+					<div class="image" style="background-image:url({{image}})"></div>
 
 					<div>
 						<h2>{{title}}</h2>
@@ -42,7 +42,6 @@
 					{{else}}
 						<a href="?page={{@index}}">{{page}}</a>
 					{{/if}}
-
 				{{/each}}
 			</div>
 		</section>

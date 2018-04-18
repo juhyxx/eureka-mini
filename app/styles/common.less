@@ -9,7 +9,10 @@ body {
   flex-direction: column;
   padding: 0;
   margin: 0;
-  align-items: center;
+	align-items: center;
+	display: flex;
+  min-height: 100vh;
+  flex-direction: column;
 }
 a {
   color: gray;
@@ -69,7 +72,8 @@ main {
   display: flex;
   max-width: @width;
   min-height: 70vh;
-  padding: 0 2rem;
+	padding: 0 2rem;
+	flex: 1;
 }
 
 table {

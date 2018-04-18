@@ -1,0 +1,60 @@
+
+.prices {
+  .price {
+    color: @color2;
+    font-weight: bold;
+    white-space: nowrap;
+  }
+  td:first-child {
+    padding-left: 1rem;
+  }
+  a.expand {
+    display: none;
+  }
+  tr {
+    transition: opacity 1s;
+  }
+  tr:nth-child(n + 5) {
+    animation: fadeId 2s;
+  }
+  table {
+    margin-bottom: 3rem;
+  }
+
+  &.collapsed {
+    tr:nth-child(n + 5) {
+      display: none;
+      opacity: 0.1;
+    }
+    tr:nth-child(3) {
+      opacity: 0.5;
+    }
+    tr:nth-child(4) {
+      opacity: 0.1;
+    }
+    a.expand {
+      display: block;
+      text-align: center;
+      position: relative;
+      top: -3rem;
+      padding: 2rem;
+      width: 100%;
+      font-size: 1.5rem;
+			cursor: pointer;
+			span {
+				color: @color1;
+			}
+    }
+  }
+}
+
+@keyframes fadeId {
+  0% {
+    visibility: none;
+    opacity: 0;
+  }
+  100% {
+    visibility: visible;
+    opacity: 1;
+  }
+}

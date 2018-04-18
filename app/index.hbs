@@ -6,9 +6,9 @@
 	<link rel="stylesheet" href="/style.css">
 </head>
 
-<body id="index">
+<body>
 	{{> header }}
-	<main>
+	<main  id="index">
 
 		<div class="list-category">
 			{{#each categories}}<a href="/category/{{categoryId}}">{{title}}</a>{{/each}}
@@ -25,7 +25,6 @@
 				</li>
 				{{/each}}
 			</ul>
-			<div>Paging</div>
 		</section>
 	</main>
 	{{> footer }}

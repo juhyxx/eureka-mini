@@ -4,13 +4,24 @@
 <head>
 	<title>{{selected.title}} (Eureka)</title>
 	<link rel="stylesheet" href="/style.css">
+	<script src="/script.js"></script>
 </head>
 
-<body id="detail">
+<body>
 	{{> header }}
-	<main>
+	<main id="detail">
 		<section>
-			<div class="image" style="background-image:url(/images/products/{{selected.productId}}.jpg)"></div>
+			<div class="gallery">
+				<div class="image" style="background-image:url({{selected.image}})"></div>
+				<div class="thumbnails">
+				{{#each selected.images}}
+					{{#unless (eq @index 0)}}
+						<div class="image" style="background-image:url({{this}})"></div>
+					{{/unless}}
+				{{/each}}
+				</div>
+			</div>
+
 			<div>
 				<h1>{{selected.title}}</h1>
 				<h3>
@@ -21,16 +32,20 @@
 		<section>
 			<hr>
 			<h2>Porovnání cen</h2>
-			<table>
-				 {{#each offers}}
-				<tr>
-					<td>{{title}}</td>
-					<td><a href="{{url}}" class="button">Koupit</a></td>
-					<td>{{currency price}} Kč</td>
-				</tr>
-				{{/each}}
-			</table>
-			<a href="">zobrazit další nabídky obchodu</a>
+			<div class="prices collapsed">
+				<table>
+					{{#each offers}}
+					<tr>
+						<td>{{title}} {{@index}}</td>
+						<td>
+							<a href="{{url}}" class="button">Koupit</a>
+						</td>
+						<td class=price>{{currency price}} Kč</td>
+					</tr>
+					{{/each}}
+				</table>
+				<a class="expand"><span>⏬</span> zobrazit další nabídky obchodu</a>
+			</div>
 		</section>
 	</main>
 	{{> footer }} {{> reload }}

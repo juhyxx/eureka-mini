@@ -1,6 +1,6 @@
 @import url('https://fonts.googleapis.com/css?family=Roboto');
 
-@color1: #7a9e9f;
+@color1: spin(#7a9e9f, -280);
 @color2: spin(@color1, -135);
 @width: 1000px;
 
@@ -9,29 +9,5 @@
 @import 'app/styles/list-category.less';
 @import 'app/styles/list-items-down.less';
 @import 'app/styles/paging.less';
-
-body#index {
-  ul.list-category {
-    li {
-      a {
-        color: @color1;
-			}
-    }
-  }
-}
-
-#page404 {
-  main {
-    font-size: 10rem;
-  }
-}
-
-section {
-  flex: 1;
-}
-
-#detail {
-	main {
-		flex-direction: column;
-	}
-}
+@import 'app/styles/prices.less';
+@import 'app/styles/layouts.less';

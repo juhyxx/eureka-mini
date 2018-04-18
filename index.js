@@ -28,6 +28,10 @@ watch.watchTree('app', { ignoreDotFiles: true }, (f, prev, curr) => {
       case '.less':
         compileLess().then(() => server.reload());
         break;
+      case '.js':
+				 fs.writeFileSync(common.public('script.js'), fs.readFileSync(common.source('script.js'), 'utf8'), 'utf8');
+				 server.reload();
+        break;
     }
   }
 });
