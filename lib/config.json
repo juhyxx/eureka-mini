@@ -1,0 +1,6 @@
+{
+  "PUBLIC_DIR": "public",
+  "SOURCE_DIR": "app",
+  "API_URL": "http://python-servers-vtnovk529892.codeanyapp.com:5000",
+  "PORT": 8080
+}
