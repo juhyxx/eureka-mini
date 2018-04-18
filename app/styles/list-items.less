@@ -14,7 +14,7 @@
       align-content: space-between;
       flex-direction: column;
       text-decoration: none;
-      color: @color1;
+      color: #CDCDCD;
       div {
         &:first-child {
           height: 150px;
@@ -26,13 +26,17 @@
           flex: 1;
           display: flex;
           justify-content: center;
-          align-items: center;
+					align-items: center;
         }
       }
 		}
-		box-shadow: 1px 1px 3px rgba(0, 0, 0, 0.2);
+		border: 3px solid #EFEFEF;
+		border-radius: 5px;
     &:hover {
-      box-shadow: 1px 1px 3px rgba(0, 0, 0, 0.4);
+			a {
+				color: @color1;
+			}
+			border-color: @color1;
     }
   }
 }

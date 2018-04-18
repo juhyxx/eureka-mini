@@ -1,0 +1,22 @@
+.paging {
+	display: flex;
+	align-content: center;
+	justify-content: center;
+	margin: 1rem;
+	font-size: 2rem;
+	a {
+		display: block;
+		&:hover {
+			background-color: lightgray;
+		}
+	}
+	&>* {
+		width: 3rem;
+		height: 3rem;
+		text-align: center;
+		&.selected {
+			background-color: @color1;
+			color: white;
+		}
+	}
+}

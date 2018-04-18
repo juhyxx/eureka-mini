@@ -35,7 +35,16 @@
 				</li>
 				{{/each}}
 			</ul>
-			<div>Paging</div>
+			<div class="paging">
+				{{#each paging.pages as |page|}}
+					{{#if (eq ../paging.selected @index)}}
+						<div class="selected">{{page}}</div>
+					{{else}}
+						<a href="?page={{@index}}">{{page}}</a>
+					{{/if}}
+
+				{{/each}}
+			</div>
 		</section>
 
 	</main>
