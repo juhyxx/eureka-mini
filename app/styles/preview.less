@@ -1,0 +1,54 @@
+#preview {
+  height: 80vh;
+  width: 80vw;
+  top: 10vh;
+  background-color: rgba(255, 255, 255, 0.95);
+  @media only screen and (max-width: 600px) {
+    height: 99vh;
+    top: 0vh;
+    top: 2px;
+    width: 97vw;
+    background-color: white;
+  }
+  position: absolute;
+  display: flex;
+  flex-direction: column;
+  box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.2);
+  #container {
+    flex: 1;
+    display: flex;
+    align-items: center;
+  }
+  #close,
+  #right,
+  #left {
+    user-select: none;
+    padding: 1rem;
+    cursor: pointer;
+    color: @color1;
+    font-size: 4rem;
+    text-align: center;
+    &:hover {
+      text-shadow: 0 -1px 0 rgba(0, 0, 0, 0.4);
+      color: darken(@color1, 10%);
+    }
+  }
+  #toolbar {
+    display: flex;
+    justify-content: flex-end;
+    #close {
+      text-align: center;
+      padding: 14px 10px;
+      line-height: 7px;
+    }
+  }
+  #image {
+    align-self: stretch;
+    flex: 1;
+    background-repeat: no-repeat;
+    background-size: contain;
+    background-position: center;
+    margin: 2rem;
+  }
+}
+

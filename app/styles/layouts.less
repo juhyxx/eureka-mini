@@ -36,26 +36,13 @@ main#detail {
   padding-top: 2rem;
   section:first-child {
     display: flex;
-  }
-  .gallery {
-    margin-right: 1rem;
-    margin-bottom: 1rem;
-    .image {
-      min-width: 200px;
-      min-height: 200px;
-      background-repeat: no-repeat;
-      background-size: contain;
-      background-position: center;
-    }
-    .thumbnails {
-      display: flex;
-      cursor: pointer;
-      .image {
-        min-width: 50px;
-        min-height: 50px;
-      }
-    }
-  }
+	}
+	@media only screen and (max-width: 800px) {
+		section:first-child {
+    flex-direction: column;
+	}
+	}
+
   h1 {
     margin-bottom: 0;
   }

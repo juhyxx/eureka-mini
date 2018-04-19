@@ -1,0 +1,26 @@
+  .gallery {
+    margin-right: 1rem;
+    margin-bottom: 1rem;
+    .image {
+      min-width: 200px;
+      min-height: 200px;
+      background-repeat: no-repeat;
+      background-size: contain;
+      background-position: center;
+    }
+    .thumbnails {
+      display: flex;
+      cursor: pointer;
+      .image {
+        min-width: 50px;
+        min-height: 50px;
+      }
+		}
+		.show {
+			color: @color1;
+			cursor: pointer;
+			&:hover {
+				color: darken(@color1, 20%);
+			}
+		}
+  }

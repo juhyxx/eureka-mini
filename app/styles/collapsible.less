@@ -1,0 +1,30 @@
+
+.collapsible {
+  .expand {
+    display: none;
+  }
+  &.collapsed {
+    .expand {
+      cursor: pointer;
+      text-align: center;
+      display: block;
+      span {
+        color: @color1;
+      }
+    }
+    .content {
+      max-height: 5rem;
+      overflow: hidden;
+      position: relative;
+      &:after {
+        position: absolute;
+        background: linear-gradient(transparent, white);
+        width: 100%;
+        height: 2rem;
+        content: '';
+        bottom: 0;
+        left: 0;
+      }
+    }
+  }
+}

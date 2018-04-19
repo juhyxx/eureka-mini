@@ -3,6 +3,9 @@
   "version": "1.0.0",
   "description": "",
   "main": "index.js",
+  "engines": {
+    "node": ">=6.10"
+  },
   "scripts": {
     "start": "node index.js",
     "test": "echo \"Error: no test specified\" && exit 1"
@@ -14,14 +17,11 @@
     "url": "https://github.com/juhyxx/eureka-mini/issues"
   },
   "homepage": "https://github.com/juhyxx/eureka-mini#readme",
-  "devDependencies": {
-    "babel-cli": "^6.26.0",
-    "babel-preset-env": "^1.6.1",
-    "less": "^3.0.1"
-  },
+  "devDependencies": {},
   "dependencies": {
     "colors": "^1.2.1",
     "handlebars": "^4.0.11",
+    "less": "^3.0.1",
     "watch": "^1.0.2",
     "websocket": "^1.0.25"
   }

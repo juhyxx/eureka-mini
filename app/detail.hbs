@@ -11,22 +11,29 @@
 	{{> header }}
 	<main id="detail">
 		<section>
+			{{#if selected.images.length}}
 			<div class="gallery">
 				<div class="image" style="background-image:url({{selected.image}})"></div>
+				{{#if (gt selected.images.length 1)}}
 				<div class="thumbnails">
-				{{#each selected.images}}
-					{{#unless (eq @index 0)}}
-						<div class="image" style="background-image:url({{this}})"></div>
-					{{/unless}}
-				{{/each}}
+					{{#each selected.images}} {{#unless (eq @index 0)}}
+					<div class="image" style="background-image:url({{this}})"></div>
+					{{/unless}} {{/each}}
 				</div>
+				<div class="show">Zobrazit celou galerii</div>
+				{{/if}}
 			</div>
+			{{/if}}
 
 			<div>
 				<h1>{{selected.title}}</h1>
 				<h3>
 					<a href="/category/{{selected.category.categoryId}}">{{selected.category.title}}</a> > {{selected.title}}</h3>
-				<p>{{selected.description}}</p>
+				<div class="collapsible collapsed">
+					<div class="content">{{selected.description}}</div>
+					<div class="expand">
+						<span>⏬</span> zobrazit</div>
+				</div>
 			</div>
 		</section>
 		<section>
@@ -44,7 +51,10 @@
 					</tr>
 					{{/each}}
 				</table>
-				<a class="expand"><span>⏬</span> zobrazit další nabídky obchodu</a>
+				{{#if (gt offers.length 4)}}
+				<a class="expand">
+					<span>⏬</span> zobrazit další nabídky obchodu</a>
+				{{/if}}
 			</div>
 		</section>
 	</main>
